@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>見出し1</th>
+                    <th>見出し2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-status="1">
+                    <td>内容1</td>
+                    <td>内容2</td>
+                </tr>
+                <tr data-status="2">
+                    <td>内容3</td>
+                    <td>内容4</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>フッタセル1</td>
+                    <td>フッタセル2</td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+         if ($('table tbody tr')
+             .map(function(i, e) { return $(this).data('status'); })
+             .filter(function(i, n) { return n == 2; })
+             .length > 0) {
+             alert('found!');
+         } else {
+             alert('not found.');
+         }
+        </script>
+    </body>
+</html>
